@@ -1,0 +1,17 @@
+import Link from "next/link";
+import Image from "next/image";
+
+export function IconText() {
+    return (            
+        <Link href="/" passHref legacyBehavior>
+            <div className="h-16 flex items-center space-x-3 forecolor cursor-pointer">
+                <Image src="favicon.svg"
+                        width={32}
+                        height={32}
+                        alt="Website Logo"
+                        className=""/>
+                <h1 className="text-l font-semibold text-black dark:invert">Nathan Gill</h1>
+            </div>
+        </Link>
+    );
+}
