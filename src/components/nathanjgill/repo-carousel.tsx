@@ -6,8 +6,17 @@ import { GitHubRepoCard } from "@/components/nathanjgill/github-repo";
 import { AlertTriangle } from "lucide-react";
 import { motion } from "framer-motion";
 
+export interface Repo {
+    html_url: string,
+    description: string,
+    language: string,
+    stargazers_count: number,
+    forks_count: number,
+    full_name: string,
+}
+
 export function RepoCarousel() {
-    const [repoList, setRepoList] = useState<any>(null);
+    const [repoList, setRepoList] = useState<Repo[] | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {

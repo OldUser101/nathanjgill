@@ -5,9 +5,10 @@ import {
 } from "@/components/ui/card"
 import { Button } from '@/components/ui/button';
 import { GitFork, Star, Code, AlertTriangle } from "lucide-react";
+import { Repo } from "./repo-carousel";
 
 interface GitHubRepoCardProps {
-  repo: any;
+  repo: Repo;
 }
 
 export function GitHubRepoCard({ repo }: GitHubRepoCardProps) {
