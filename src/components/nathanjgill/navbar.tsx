@@ -1,45 +1,80 @@
+"use client"
+
 import Link from "next/link";
+import { useState } from "react";
 
 import {
     NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 
+import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { ModeToggle } from "@/components/nathanjgill/mode-toggle";
+
+function NavItem({children, href}: {children: React.ReactNode, href: string}) {
+    return (
+        <div>
+            <Link href={href} legacyBehavior passHref>
+                <div className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
+                    {children}
+                </div>
+            </Link>
+        </div>
+    );
+}
+
 export function Navbar() {
-  return (
-    <NavigationMenu>
-        <NavigationMenuList>
-            <NavigationMenuItem>
-                <Link href="" legacyBehavior passHref>
-                    <NavigationMenuLink className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400">
-                        Tetra Software
-                    </NavigationMenuLink>
-                </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-                <Link href="" legacyBehavior passHref>
-                    <NavigationMenuLink className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white">
-                        Projects
-                    </NavigationMenuLink>
-                </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-                <Link href="" legacyBehavior passHref>
-                    <NavigationMenuLink className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white">
-                        Guides
-                    </NavigationMenuLink>
-                </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-                <Link href="" legacyBehavior passHref>
-                    <NavigationMenuLink className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white">
-                        About
-                    </NavigationMenuLink>
-                </Link>
-            </NavigationMenuItem>
-        </NavigationMenuList>
-    </NavigationMenu>
-  );
+    const [open, setOpen] = useState(false);
+
+    return (
+        <nav>
+            <NavigationMenu className="hidden md:flex">
+                <NavigationMenuList>
+                    <div>
+                        <Link href="/" legacyBehavior passHref>
+                            <div className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
+                                Tetra Software
+                            </div>
+                        </Link>
+                    </div>
+
+                    <NavItem href="/">Projects</NavItem>
+                    <NavItem href="/">Guides</NavItem>
+                    <NavItem href="/">About</NavItem>
+                </NavigationMenuList>
+            </NavigationMenu>
+
+            <Sheet open={open} onOpenChange={setOpen}>
+                <SheetTitle></SheetTitle>
+                <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon" className="md:hidden">
+                        <Menu/>
+                    </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-full h-full">
+                    <div className="flex flex-col mt-6 w-full h-full">
+                        <div>
+                            <Link href="/" legacyBehavior passHref>
+                                <div className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
+                                    Tetra Software
+                                </div>
+                            </Link>
+                        </div>
+
+                        <NavItem href="/">Projects</NavItem>
+                        <NavItem href="/">Guides</NavItem>
+                        <NavItem href="/">About</NavItem>
+
+                        <div className="flex-grow"/>
+
+                        <div className="mb-6">
+                            <ModeToggle/>
+                        </div>
+                    </div>
+                </SheetContent>
+            </Sheet>
+        </nav>
+    );
 }

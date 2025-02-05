@@ -1,11 +1,14 @@
+"use client";
+
 import { IconText } from "@/components/nathanjgill/icon-text";
 import { GitHubSocial, EmailSocial, GitLabSocial } from "./social-links";
+import { motion } from "framer-motion";
 
 export function FooterPanel() {
   return (
-    <footer className="h-14 flex forecolor p-3 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 mx-auto pt-6">
-            <div className="h-16 flex items-center space-x-3 forecolor">
+    <motion.footer initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="h-14 flex forecolor w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 w-full">
+            <div className="h-16 flex flex-row items-center justify-center space-x-3 forecolor">
                 <IconText/>
             </div>
 
@@ -32,6 +35,6 @@ export function FooterPanel() {
                 Copyright © 2024-2025, Nathan Gill
             </p>
         </div>
-    </footer>
+    </motion.footer>
   );
 }
