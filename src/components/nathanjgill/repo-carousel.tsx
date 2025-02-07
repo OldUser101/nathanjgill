@@ -55,7 +55,7 @@ export function RepoCarousel() {
         <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5}} className="group border-b border-b-neutral-700 overflow-x-hidden relative flex pt-6 pb-6">
             <div className="select-none flex animate-marquee group-hover:paused">
                 {repoList.map((repo, index) => (
-                    <div key={index} className="flex flex-shrink-0 items-stretch md:basis-1/2 lg:basis-1/3">
+                    <div key={index} className="flex flex-shrink-0 items-stretch md:w-1/2 lg:w-1/3">
                         <GitHubRepoCard repo={repo}/>
                     </div>
                 ))}
@@ -63,7 +63,7 @@ export function RepoCarousel() {
 
             <div className="select-none flex animate-marquee2 absolute group-hover:paused">
                 {repoList.map((repo, index) => (
-                    <div key={index} className="flex flex-shrink-0 items-stretch md:basis-1/2 lg:basis-1/3">
+                    <div key={index} className="flex flex-shrink-0 items-stretch md:w-1/2 lg:w-1/3">
                         <GitHubRepoCard repo={repo}/>
                     </div>
                 ))}

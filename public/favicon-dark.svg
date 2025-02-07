@@ -6,20 +6,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
 
-   <style>
-      rect {
-         fill: #000000;
-      }
-
-      @media (prefers-color-scheme: dark) {
-         rect {
-            fill: #ffffff;
-         }
-      }
-   </style>
-
    <rect
-      style="stroke-width:0.334611"
+      style="stroke-width:0.334611;fill:#ffffff"
       id="rect1"
       width="25"
       height="88.27021"
@@ -28,7 +16,7 @@
       transform="matrix(1,0,-0.52732477,0.84966381,0,0)"
       ry="6.850574" />
    <rect
-      style="stroke-width:0.334611"
+      style="stroke-width:0.334611;fill:#ffffff"
       id="rect2"
       width="25"
       height="88.27021"
