@@ -23,7 +23,7 @@ export function RepoCarousel() {
         const fetchRepoList = async () => {
             try {
                 const response = await axios.get(`https://api.github.com/users/OldUser101/repos?sort=updated`);
-                setRepoList(response.data.slice(0, 5));
+                setRepoList(response.data.slice(0, 4));
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching repo list", error);
@@ -69,8 +69,8 @@ export function RepoCarousel() {
                 ))}
             </div>
 
-            <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-white dark:from-black to-transparent pointer-events-none"/>
-            <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-white dark:from-black to-transparent pointer-events-none"/>
+            <div className="absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-white dark:from-black to-transparent pointer-events-none"/>
+            <div className="absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-white dark:from-black to-transparent pointer-events-none"/>
         </motion.div>
     );
 }
