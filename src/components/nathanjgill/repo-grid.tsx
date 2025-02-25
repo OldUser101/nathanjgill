@@ -15,7 +15,6 @@ export function RepoGrid() {
         const fetchRepoList = async () => {
             try {
                 const response = await axios.get("/api/github");   
-                console.log(response);
                 setRepoList(GetRepoListFromGraphQlQuery(response.data));
                 setLoading(false);
             } catch (error) {
