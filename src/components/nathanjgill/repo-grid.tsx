@@ -6,6 +6,7 @@ import { GitHubRepoCard } from "@/components/nathanjgill/github-repo";
 import { AlertTriangle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Repository, GetRepoListFromGraphQlQuery } from '@/lib/repository';
+import { Button } from '../ui/button';
 
 export function RepoGrid() {
     const [repoList, setRepoList] = useState<Repository[] | null>(null);
@@ -44,12 +45,13 @@ export function RepoGrid() {
     }
 
     return (
-        <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5}} className="group border-b border-b-neutral-700 overflow-x-hidden relative flex pt-6 pb-6">
+        <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5}} className="group border-b border-b-neutral-700 overflow-x-hidden relative flex pt-6 pb-6 flex-col">
             <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 w-full px-4">
                 {repoList.slice(0, 6).map((repo, index) => (
                     <GitHubRepoCard repo={repo} key={index}/>
                 ))}
             </div>
+            <Button className="mx-auto mt-6">Load more</Button>
         </motion.div>
     );
 }

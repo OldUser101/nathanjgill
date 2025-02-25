@@ -8,6 +8,7 @@ export type Repository = {
     languageName: string | null;
     avatarUrl: string;
     login: string;
+    ownerType: string,
     watchersCount: number;
     totalCommits: number;
     lastCommit: string | null;
@@ -43,6 +44,7 @@ export type GraphQLResponse = {
                         owner: {
                             avatarUrl: string;
                             login: string;
+                            __typename: string;
                         };
                         watchers: {
                             totalCount: number;
@@ -75,6 +77,7 @@ export type GraphQLResponse = {
                         owner: {
                             avatarUrl: string;
                             login: string;
+                            __typename: string;
                         };
                         watchers: {
                             totalCount: number;
@@ -107,6 +110,7 @@ export function GetRepoListFromGraphQlQuery(res: GraphQLResponse): Repository[] 
                     languageName: repository.languages.edges.length > 0 ? repository.languages.edges[0].node.name : null,
                     avatarUrl: repository.owner.avatarUrl,
                     login: repository.owner.login,
+                    ownerType: repository.owner.__typename,
                     watchersCount: repository.watchers.totalCount,
                     totalCommits: contributions.totalCount,
                     lastCommit: occurredAtDates.length > 0 ? occurredAtDates[0] : null,

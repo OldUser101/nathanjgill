@@ -50,6 +50,7 @@ query {
           owner {
             avatarUrl
             login
+            __typename
           }
           watchers {
     		totalCount
@@ -82,6 +83,7 @@ query {
           owner {
             avatarUrl
             login
+            __typename
           }
           watchers {
     	    totalCount

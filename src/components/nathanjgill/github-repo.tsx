@@ -27,7 +27,14 @@ export function GitHubRepoCard({ repo }: GitHubRepoCardProps) {
         <Card className="p-4 flex-1">
             <div className="h-full flex flex-col select-none">
                 <div>
-                    <img alt="GitHub Avatar" src={repo.avatarUrl} width="36" height="36" className="mb-2 rounded-full"/>
+                    {repo.ownerType == "User" ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img alt="GitHub Avatar" src={repo.avatarUrl} width="36" height="36" className="mb-2 rounded-full"/>
+                        ) : (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img alt="GitHub Avatar" src={repo.avatarUrl} width="36" height="36" className="mb-2 rounded-md"/>
+                    )}
+                    
                     <div>
                         <a href={repo.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-xl hover:underline">{repo.login}/{repo.name}</a>
                         <p className="font-light text-base mt-2">{repo.description}</p>
