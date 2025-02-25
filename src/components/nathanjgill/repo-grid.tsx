@@ -7,15 +7,6 @@ import { AlertTriangle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Repository, GetRepoListFromGraphQlQuery } from '@/lib/repository';
 
-export interface Repo {
-    html_url: string,
-    description: string,
-    language: string,
-    stargazers_count: number,
-    forks_count: number,
-    full_name: string,
-}
-
 export function RepoGrid() {
     const [repoList, setRepoList] = useState<Repository[] | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -23,7 +14,8 @@ export function RepoGrid() {
     useEffect(() => {
         const fetchRepoList = async () => {
             try {
-                const response = await axios.get(`/api/github`);   
+                const response = await axios.get("/api/github");   
+                console.log(response);
                 setRepoList(GetRepoListFromGraphQlQuery(response.data));
                 setLoading(false);
             } catch (error) {
