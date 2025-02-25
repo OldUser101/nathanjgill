@@ -24,7 +24,7 @@ export async function GET() {
 query {
   viewer {
     contributionsCollection {
-      commitContributionsByRepository(maxRepositories: 10) {
+      commitContributionsByRepository(maxRepositories: 36) {
         contributions (first: 1) {
           totalCount
           edges {
@@ -57,7 +57,7 @@ query {
           }
         }
       }
-      pullRequestContributionsByRepository(maxRepositories: 10) {
+      pullRequestContributionsByRepository(maxRepositories: 36) {
         contributions (first: 1) {
           totalCount
           edges {

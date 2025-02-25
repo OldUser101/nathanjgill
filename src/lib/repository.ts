@@ -135,7 +135,7 @@ export function GetRepoListFromGraphQlQuery(res: GraphQLResponse): Repository[] 
         return Array.from(map.values()).sort((a, b) => ((a.lastCommit ?? "") > (b.lastCommit ?? "") ? -1 : 1));
     };
 
-    const sortedRepos = sortRepoMapByDate(commitsMap);
+    const sortedRepos = sortRepoMapByDate(commitsMap).slice(0, 35);
 
     return sortedRepos;
 }
