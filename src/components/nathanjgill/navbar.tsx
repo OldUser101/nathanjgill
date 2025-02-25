@@ -8,7 +8,7 @@ import {
     NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 
-import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "@/components/nathanjgill/mode-toggle";
@@ -29,7 +29,7 @@ function MobileNavItem({children, href}: {children: React.ReactNode, href: strin
     return (
         <div>
             <Link href={href} legacyBehavior passHref>
-                <div className="items-center justify-center p-2 text-lg font-semibold transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
+                <div className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
                     {children}
                 </div>
             </Link>
@@ -60,6 +60,7 @@ export function Navbar() {
 
             <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTitle></SheetTitle>
+                <SheetDescription></SheetDescription>
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className="md:hidden">
                         <Menu/>
@@ -69,7 +70,7 @@ export function Navbar() {
                     <div className="flex flex-col mt-6 w-full h-full">
                         <div>
                             <Link href="/" legacyBehavior passHref>
-                                <div className="items-center justify-center p-2 text-lg font-semibold transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
+                                <div className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
                                     Tetra Software
                                 </div>
                             </Link>
