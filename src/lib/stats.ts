@@ -97,6 +97,7 @@ export function GetStatsFromGraphQlRestQuery(gres: StatGraphQLResponse, rres: RE
     return stats;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function QueryGitHubRestApi(): Promise<AxiosResponse<any, any> | null> {
     const accessToken = process.env.GITHUB_TOKEN;
 

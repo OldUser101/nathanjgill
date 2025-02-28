@@ -10,7 +10,10 @@ export function GitHubStatsCard({ stats }: GitHubStatsCardProps) {
     return (
         <Card className="flex flex-col md:flex-row gap-4 p-4">
         <div>
-            <img alt="GitHub Avatar" src={stats.avatarUrl} width={128} height={128} className="rounded-full"/>
+            {
+                // eslint-disable-next-line @next/next/no-img-element
+                <img alt="GitHub Avatar" src={stats.avatarUrl} width={128} height={128} className="rounded-full"/>
+            }
         </div>
         <div>
             <a className="flex pb-2 hover:underline" target="_blank" rel="noopener noreferrer" href={stats.htmlUrl}>

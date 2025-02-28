@@ -9,6 +9,7 @@ import { GitHubStatsCard } from './github-stats';
 import { GitHubAbout } from './github-about';
 
 interface AxiosCache {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any,
     timestamp: number
 }
@@ -28,6 +29,7 @@ export function GitHubStats() {
         const fetchStats = async () => {
             try {
                 const response_stat = await axios.get("/api/github/stat");
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 let response_user: AxiosResponse<any, any> | null = null;
 
                 const now = Date.now();
