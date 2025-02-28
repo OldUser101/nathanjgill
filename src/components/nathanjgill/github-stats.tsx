@@ -1,0 +1,41 @@
+import { Stats, Language } from "@/lib/stats";
+import { Card } from "../ui/card";
+import { NumericStat } from "./numericStat";
+
+interface GitHubStatsCardProps {
+    stats: Stats
+};
+
+export function GitHubStatsCard({ stats }: GitHubStatsCardProps) {
+    return (
+        <Card className="flex flex-col md:flex-row gap-4 p-4">
+        <div>
+            <img alt="GitHub Avatar" src={stats.avatarUrl} width={128} height={128} className="rounded-full"/>
+        </div>
+        <div>
+            <a className="flex pb-2 hover:underline" target="_blank" rel="noopener noreferrer" href={stats.htmlUrl}>
+                <h1 className="text-3xl font-semibold">Nathan Gill</h1>
+                <h1 className="text-2xl mt-auto ml-4">OldUser101</h1>
+            </a>
+            <div className="border-b border-b-neutral-700 my-2 mx-2"/>
+            <NumericStat title="bytes of public code" value={stats.totalCode}/>
+            <div className="border-b border-b-neutral-700 my-2 mx-2"/>
+            <NumericStat title=" languages" prefix="in" className="ml-2" value={stats.topLanguages?.length ?? 0}/>
+            <div className="border-b border-b-neutral-700 my-2 mx-2"/>
+            <NumericStat title="public repositories" prefix="across" className="ml-2" value={stats.totalRepos}/>
+        </div>
+        <div className="border-l border-l-neutral-700 hidden md:block"/>
+        <div className="border-b border-b-neutral-700 md:hidden"/>
+        <div>
+            <h1 className="font-light text-xl mb-2">Top Languages</h1>
+            <div className="ml-4 text-lg flex flex-col h-full pb-6 grow">
+                {stats.topLanguages?.slice(0, 5).map((language: Language) => (
+                    <p key={language.name} className="grow">
+                        {language.name} - <span className="font-semibold">{language.size}</span> bytes
+                    </p>
+                ))}
+            </div>
+        </div>
+    </Card>
+    );
+}

@@ -15,7 +15,7 @@ export function IconText() {
                         height={32}
                         alt="Website Logo"
                         className="hidden dark:block mr-3"/>
-                <h1 className="text-l font-semibold text-black dark:invert">Nathan Gill</h1>
+                <h1 className="text-l font-semibold text-black dark:text-white">Nathan Gill</h1>
             </div>
         </Link>
     );

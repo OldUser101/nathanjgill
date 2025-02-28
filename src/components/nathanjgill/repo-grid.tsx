@@ -16,7 +16,7 @@ export function RepoGrid() {
     useEffect(() => {
         const fetchRepoList = async () => {
             try {
-                const response = await axios.get("/api/github");
+                const response = await axios.get("/api/github/repo");
                 setRepoList(GetRepoListFromGraphQlQuery(response.data));
                 setLoading(false);
             } catch (error) {
@@ -50,14 +50,15 @@ export function RepoGrid() {
     };
 
     return (
-        <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5}} className="group border-b border-b-neutral-700 overflow-x-hidden relative flex pt-6 pb-6 flex-col">
+        <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.5}} className="group border-b border-b-neutral-700 flex pt-6 pb-6 flex-col">
+            <h1 className="ml-4 pb-6 text-3xl font-semibold">Recent Contributions</h1>
             <div className="hidden md:block">
                 <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 w-full px-4">
                     {Array.from(Array(4), (_, i) => (
                         loadMoreIndex > i ? (
                             repoList.slice(i * 6, (i + 1) * 6).map((repo, index) => (
                                 <GitHubRepoCard repo={repo} key={index}/>
-                        ))) : null
+                            ))) : null
                     ))}
                 </div>
             </div>
