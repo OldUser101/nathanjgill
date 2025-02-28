@@ -7,6 +7,7 @@ import { GetStatsFromGraphQlRestQuery, Stats } from "@/lib/stats";
 import { motion } from 'framer-motion';
 import { GitHubStatsCard } from './github-stats';
 import { GitHubAbout } from './github-about';
+import { GitHubTopLang } from './github-toplang';
 
 interface AxiosCache {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -74,7 +75,8 @@ export function GitHubStats() {
 
     return (
         <motion.div className="border-b border-b-neutral-700 pt-6 pb-6 px-4 flex lg:flex-row flex-col gap-4" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1}}>
-            <GitHubStatsCard stats={stats}/>
+            <GitHubStatsCard stats={stats} />
+            <GitHubTopLang stats={stats} />
             <GitHubAbout />
         </motion.div>
     );
