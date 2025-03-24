@@ -75,7 +75,7 @@ export function TutorialCard({ tutorial }: TutorialCardProps) {
                         </Button>
                     </div>
                     {notContinueTutorial ? 
-                        <a href={`/tutorials/${tutorial.slug}?chapter=${nextChapter + 1}`}><Button className="w-full">
+                        <a href={`/tutorials/${tutorial.slug}?chapter=1`}><Button className="w-full">
                             Start Tutorial
                         </Button></a>
                         :(nextChapter < tutorial.chapters.length ? 

@@ -23,7 +23,7 @@ On `Form1`, you will need to create the following components:
 
 When done, `Form1` should look like this:
 
-![Completed `Form1`](https://www.codeproject.com/KB/database/5296733/form1Done.png)
+![Completed `Form1`](/resources/mysql-database-connection-tester/form1Done.png)
 
 On `Form2`, you will need to create the following components:
 
@@ -41,4 +41,4 @@ On `Form2`, you will need to create the following components:
 
 When done, `Form2` should look like this:
 
-![Completed `Form2`](https://www.codeproject.com/KB/database/5296733/Form2Done.png)
+![Completed `Form2`](/resources/mysql-database-connection-tester/Form2Done.png)
