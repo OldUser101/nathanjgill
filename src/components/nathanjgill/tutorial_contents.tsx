@@ -12,7 +12,7 @@ export interface TutorialContentsProps {
     completedChapters: boolean[],
 }
 
-export function TutorialContents({slug, chapterNumber, tutorial, completedChapters}: TutorialContentsProps) {
+export function TutorialContents({slug, tutorial, completedChapters}: TutorialContentsProps) {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>

@@ -1,6 +1,4 @@
-import { notFound } from 'next/navigation';
 import { Tutorial } from '@/lib/tutorial';
-import TutorialPage from '@/components/nathanjgill/tutorial';
 import fs from 'fs';
 import path from 'path';
 import { HeaderPanel } from '@/components/nathanjgill/header';

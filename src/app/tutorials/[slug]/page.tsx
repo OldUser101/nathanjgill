@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import MarkdownRenderer from '@/components/nathanjgill/markdownRenderer';
 import { Tutorial } from '@/lib/tutorial';
 import TutorialPage from '@/components/nathanjgill/tutorial';
 import fs from 'fs';

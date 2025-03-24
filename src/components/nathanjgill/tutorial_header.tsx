@@ -1,8 +1,6 @@
 import { Chapter } from "@/lib/tutorial";
 import { TutorialPageProps } from "./tutorial";
 import { Progress } from "@/components/ui/progress"
-import { Button } from "../ui/button";
-import { TableOfContents } from "lucide-react";
 import { TutorialContents } from "./tutorial_contents";
 
 export function TutorialHeaderPanel({ slug, chapterNumber, tutorial, completedChapters }: TutorialPageProps) {
