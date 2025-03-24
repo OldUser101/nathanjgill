@@ -5,8 +5,8 @@ import fs from 'fs';
 import path from 'path';
 
 interface TutorialLoaderProps {
-  params: { slug: string };
-  searchParams?: { chapter?: string };
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ chapter?: string }>;
 }
 
 export async function generateMetadata({ params }: TutorialLoaderProps) {
