@@ -27,7 +27,7 @@ export default function TutorialPage({ slug, chapterNumber, tutorial }: Tutorial
             toBoolean(localStorage.getItem(`${slug}_${c}_complete`) ?? "")
         );
         setCompletedChapters(storedProgress);
-    }, [slug, tutorial.chapters.length]);
+    }, [slug, tutorial.chapters.length, tutorial.chapters]);
 
     const markChapterComplete = (index: number) => {
         const updatedChapters = [...completedChapters];

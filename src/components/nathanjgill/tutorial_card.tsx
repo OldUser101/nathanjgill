@@ -18,7 +18,7 @@ export function TutorialCard({ tutorial }: TutorialCardProps) {
     const [nextChapter, setNextChapter] = useState<number>(0);
 
     useEffect(() => {
-        var allOff: boolean = true;
+        let allOff: boolean = true;
         const storedProgress = tutorial.chapters.map((_, c) =>
             toBoolean(localStorage.getItem(`${tutorial.slug}_${c}_complete`) ?? "")
         );
@@ -31,10 +31,10 @@ export function TutorialCard({ tutorial }: TutorialCardProps) {
             }
         });
         setNotContinueTutorial(allOff);
-    }, [tutorial.slug, tutorial.chapters.length]);
+    }, [tutorial.slug, tutorial.chapters.length, tutorial.chapters]);
 
     const clearProgress = (slug: string) => {
-        var allOff: boolean = true;
+        let allOff: boolean = true;
         const newChapters: boolean[] = []
         Array.from({length: tutorial.chapters.length}, (c, i) => {
             localStorage.setItem(`${slug}_${i}_complete`, "false")
