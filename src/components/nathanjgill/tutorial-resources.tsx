@@ -10,7 +10,7 @@ export function TutorialResources({ tutorial }: TutorialResourcesProps) {
 
     useEffect(() => {
         const newChapters: Chapter[] = [];
-        tutorial.chapters.map((c, i) => {
+        tutorial.chapters.map((c) => {
             if (c.resources !== undefined) {
                 if (c.resources.length > 0) {
                     newChapters.push(c);
@@ -18,7 +18,7 @@ export function TutorialResources({ tutorial }: TutorialResourcesProps) {
             }
         })
         setChapters(newChapters);
-    },tutorial.chapters);
+    },[tutorial.chapters]);
 
     return (
         <div className="w-full border-b border-neutral-700 p-6">
