@@ -1,5 +1,6 @@
 import { Tutorial } from "@/lib/tutorial"
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export interface TutorialNavProps {
     slug: string,
@@ -15,9 +16,11 @@ export function TutorialNav({ slug, chapterNumber, tutorial, completedChapters, 
         <div className="flex justify-center mt-4 mb-8">
             <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-4">
                 {chapterNumber == 0 ? 
-                    <Button className="min-w-[max-content] px-6" disabled>
-                        Previous Chapter
-                    </Button> 
+                    <Link className="min-w-[max-content]" href="/tutorials">
+                        <Button className="w-full px-6">
+                            View All Tutorials
+                        </Button>
+                    </Link>
                     :<a className="min-w-[max-content]" href={`/tutorials/${slug}?chapter=${chapterNumber}`}>
                         <Button className="w-full px-6">
                             Previous Chapter
@@ -33,9 +36,11 @@ export function TutorialNav({ slug, chapterNumber, tutorial, completedChapters, 
                     </Button>}
 
                 {chapterNumber == tutorial.chapters.length - 1 ? 
-                    <Button className="min-w-[max-content] px-6" disabled>
-                        Next Chapter
-                    </Button> 
+                    <Link className="min-w-[max-content]" href="/tutorials">
+                        <Button className="w-full px-6">
+                            View All Tutorials
+                        </Button>
+                    </Link>
                     :<a className="min-w-[max-content]" href={`/tutorials/${slug}?chapter=${chapterNumber + 2}`}>
                         <Button className="w-full px-6">
                             Next Chapter
