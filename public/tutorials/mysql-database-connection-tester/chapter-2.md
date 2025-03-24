@@ -1,13 +1,13 @@
 Add these imports:
 
-```
+```vbnet
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 ```
 
 Add this code to `Form1`:
 
-```
+```vbnet
 Dim connectionString As String
 Dim mySqlConnection As MySqlConnection
 Dim resetDataOnFail As Boolean
@@ -21,7 +21,7 @@ These are important variables to monitor certain aspects of out program. Also cr
 
 Then add:
 
-```
+```vbnet
 Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     connect.Enabled = True
     status.Text = "Status: Disconnected"
@@ -33,7 +33,7 @@ This enables the `connect` button and changes the status. The `UpdateOptions` fu
 
 Add:
 
-```
+```vbnet
 Private Sub connect_Click(sender As Object, e As EventArgs) Handles connect.Click
     Try
         connectionString = "server=" & host.Text & ";user=" & user.Text & ";_
@@ -67,7 +67,7 @@ This handles the click event of out `connect` button. The first three lines are 
 
 Add:
 
-```
+```vbnet
 Private Sub disconnect_Click(sender As Object, e As EventArgs) Handles disconnect.Click
         Try
             mySqlConnection.Close()
@@ -98,7 +98,7 @@ Here, we handle the disconnection event, where we disconnect from the database a
 
 Add:
 
-```
+```vbnet
 Public Sub ResetData()
     host.Text = "Host..."
     database.Text = "Database..."
@@ -130,7 +130,7 @@ End Sub
 
 Add:
 
-```
+```vbnet
 Public Sub Button1_Click(sender As Object, e As EventArgs) Handles options.Click
     Form2.ShowDialog()
     If Form2.DialogResult = DialogResult.OK Then
@@ -156,7 +156,7 @@ Here, we choose what to do when `Button1` is pressed. We also create `UpdateOpti
 
 Add this code to `Form2`:
 
-```
+```vbnet
 Private Sub passwordChar_CheckedChanged(sender As Object, e As EventArgs) _
         Handles usePasswordChar.CheckedChanged
     If usePasswordChar.Checked = True Then
@@ -187,7 +187,7 @@ Here, we handle what happens when we change whether we want to use a password ch
 
 The full code of `Form1` is here:
 
-```
+```vbnet
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
 Public Class Form1
@@ -310,7 +310,7 @@ End Class
 
 The full code of `Form2` is here:
 
-```
+```vbnet
 Public Class Form2
 
     Private Sub passwordChar_CheckedChanged(sender As Object, e As EventArgs) _

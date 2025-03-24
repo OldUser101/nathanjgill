@@ -78,7 +78,7 @@ export function TutorialCard({ tutorial }: TutorialCardProps) {
                         <a href={`/tutorials/${tutorial.slug}?chapter=${nextChapter + 1}`}><Button className="w-full">
                             Start Tutorial
                         </Button></a>
-                        :(nextChapter + 1 < tutorial.chapters.length ? 
+                        :(nextChapter < tutorial.chapters.length ? 
                         <a href={`/tutorials/${tutorial.slug}?chapter=${nextChapter + 1}`}><Button className="w-full">
                             Continue Tutorial
                         </Button></a>

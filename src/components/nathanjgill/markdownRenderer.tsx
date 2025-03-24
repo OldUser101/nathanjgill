@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import remarkGfm from 'remark-gfm';
 import rehypeStringify from "rehype-stringify";
+import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 
 import '@/app/markdown.css';
@@ -27,12 +27,12 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownUrl, classN
         const response = await axios.get<string>(markdownUrl);
         const markdownText = response.data;
 
-        const result = await remark()
-          .use(html)
+        const result = await unified()
           .use(remarkParse)
           .use(remarkRehype, { allowDangerousHtml: true })
           .use(rehypeRaw)
           .use(remarkGfm)
+          .use(rehypeHighlight)
           .use(rehypeStringify)
           .process(markdownText);
 

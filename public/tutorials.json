@@ -11,7 +11,17 @@
       {
         "chapterNumber": 2,
         "title": "Code",
-        "path": "/tutorials/mysql-database-connection-tester/chapter-2.md"
+        "path": "/tutorials/mysql-database-connection-tester/chapter-2.md",
+        "resources": [
+          {
+            "title": "Source Code",
+            "path": "/resources/mysql-database-connection-tester/Resources.zip"
+          },
+          {
+            "title": "Compiled Code",
+            "path": "/resources/mysql-database-connection-tester/MySqlConnectionTester.zip"
+          }
+        ]
       }
     ]
   }

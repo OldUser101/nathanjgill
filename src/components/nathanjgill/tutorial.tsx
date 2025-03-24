@@ -8,6 +8,7 @@ import MarkdownRenderer from "./markdownRenderer";
 import { TutorialHeaderPanel } from "./tutorial_header";
 import { TutorialNav } from "./tutorial_nav";
 import { motion } from "framer-motion";
+import { TutorialResources } from "./tutorial-resources";
 
 export interface TutorialPageProps {
     slug: string,
@@ -75,6 +76,7 @@ export default function TutorialPage({ slug, chapterNumber, tutorial }: Tutorial
             </main>
             <TutorialNav slug={slug} chapterNumber={chapterNumber} tutorial={tutorial} completedChapters={completedChapters} markComplete={markChapterComplete} markIncomplete={markChapterIncomplete}/>
             <div className="w-full border-b border-neutral-700"/>
+            <TutorialResources tutorial={tutorial}/>
             <FooterPanel />
         </div>
     );
