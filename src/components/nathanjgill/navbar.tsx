@@ -12,6 +12,8 @@ import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetDescription } from 
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "@/components/nathanjgill/mode-toggle";
+import { Tutorial } from "@/lib/tutorial";
+import { Check } from "lucide-react";
 
 function NavItem({children, href}: {children: React.ReactNode, href: string}) {
     return (
@@ -37,8 +39,17 @@ function MobileNavItem({children, href}: {children: React.ReactNode, href: strin
     );
 }
 
-export function Navbar() {
+interface NavbarProps {
+    useChapter?: boolean,
+    tutorial?: Tutorial,
+    completedChapters?: boolean[],
+    slug?: string
+};
+
+export function Navbar({ useChapter, tutorial, completedChapters, slug }: NavbarProps) {
     const [open, setOpen] = useState(false);
+
+    const showChapterView = useChapter && tutorial !== undefined && completedChapters !== undefined && slug !== undefined;
 
     return (
         <nav>
@@ -53,7 +64,7 @@ export function Navbar() {
                     </div>
 
                     <NavItem href="/">Projects</NavItem>
-                    <NavItem href="/">Guides</NavItem>
+                    <NavItem href="/tutorials">Tutorials</NavItem>
                     <NavItem href="/">About</NavItem>
                 </NavigationMenuList>
             </NavigationMenu>
@@ -67,7 +78,7 @@ export function Navbar() {
                     </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-full h-full">
-                    <div className="flex flex-col mt-6 w-full h-full">
+                    <div className="flex flex-col mt-6 w-full h-full overflow-y-auto">
                         <div>
                             <Link href="/" legacyBehavior passHref>
                                 <div className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
@@ -77,8 +88,25 @@ export function Navbar() {
                         </div>
 
                         <MobileNavItem href="/">Projects</MobileNavItem>
-                        <MobileNavItem href="/">Guides</MobileNavItem>
+                        <MobileNavItem href="/tutorials">Tutorials</MobileNavItem>
                         <MobileNavItem href="/">About</MobileNavItem>
+
+                        <div className="flex-grow"/>
+
+                        {showChapterView ?
+                        <div>
+                            {tutorial.chapters.map((chapter, index) => (
+                                <div key={index} className="flex items-center justify-between">
+                                    <a href={`/tutorials/${slug}?chapter=${index + 1}`} className="flex w-full items-center justify-between p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
+                                        <span>{chapter.title}</span>
+                                        {completedChapters[index] ? (
+                                            <Check />
+                                        ) : null}
+                                    </a>
+                                </div>
+                            ))}
+                        </div>
+                        :undefined}
 
                         <div className="flex-grow"/>
 

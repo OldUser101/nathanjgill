@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Create a MySQL Database Connection Tester",
+    "slug": "mysql-database-connection-tester",
+    "chapters": [
+      {
+        "chapterNumber": 1,
+        "title": "Introduction & Set-Up",
+        "path": "/tutorials/mysql-database-connection-tester/chapter-1.md"
+      },
+      {
+        "chapterNumber": 2,
+        "title": "Code",
+        "path": "/tutorials/mysql-database-connection-tester/chapter-2.md"
+      }
+    ]
+  }
+]

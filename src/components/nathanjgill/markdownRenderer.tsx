@@ -2,14 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {remark} from 'remark';
+import { remark } from 'remark';
 import html from 'remark-html';
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import remarkGfm from 'remark-gfm';
+import rehypeStringify from "rehype-stringify";
+import rehypeRaw from "rehype-raw";
+
+import '@/app/markdown.css';
 
 interface MarkdownRendererProps {
   markdownUrl: string;
+  className?: string;
 }
 
-const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownUrl }) => {
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownUrl, className = "" }) => {
   const [markdownContent, setMarkdownContent] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
@@ -19,8 +27,36 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownUrl }) => {
         const response = await axios.get<string>(markdownUrl);
         const markdownText = response.data;
 
-        const result = await remark().use(html).process(markdownText);
-        setMarkdownContent(result.toString());
+        const result = await remark()
+          .use(html)
+          .use(remarkParse)
+          .use(remarkRehype, { allowDangerousHtml: true })
+          .use(rehypeRaw)
+          .use(remarkGfm)
+          .use(rehypeStringify)
+          .process(markdownText);
+
+        const htmlContent = result.toString();
+
+        // const rehypeHtml = await rehype()
+        //   .data('settings', { fragment: true })
+        //   .use(remarkParse)
+        //   .use(remarkGfm)
+        //   .use(remarkRehype, {allowDangerousHtml: true})
+        //   .use(rehypeRaw)
+        //   .use(rehypeStringify)
+        //   .use(rehypeCodeTitles)
+        //   .use(rehypePrism)
+        //   .use(rehypeReact)
+        //   .process(htmlContent);
+
+          // const rehypeHtml = await rehype()
+          // .data('settings', { fragment: true })
+          // .use(rehypeRaw)
+          // .use(rehypePrism)
+          // .process(htmlContent);
+
+        setMarkdownContent(htmlContent);
       } catch (err) {
         setError('Failed to fetch Markdown content.');
         console.error(err);
@@ -35,7 +71,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownUrl }) => {
   }
 
   return (
-    <div className="markdown-container" dangerouslySetInnerHTML={{ __html: markdownContent }} />
+    <div className={`markdown-content ${className}`} dangerouslySetInnerHTML={{ __html: markdownContent }} />
   );
 };
 

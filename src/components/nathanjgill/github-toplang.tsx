@@ -1,6 +1,7 @@
 import { Stats } from "@/lib/stats";
 import { Card } from "../ui/card";
 import { Language } from "@/lib/stats";
+import Counter from "./counter";
 
 interface GitHubTopLangProps {
     stats: Stats
@@ -13,7 +14,7 @@ export function GitHubTopLang({ stats }: GitHubTopLangProps) {
             <div className="ml-4 text-lg flex flex-col h-full grow">
                 {stats.topLanguages?.slice(0, 5).map((language: Language) => (
                     <p key={language.name} className="grow">
-                        {language.name} - <span className="font-semibold">{language.size}</span> bytes
+                        {language.name} - <span className="font-semibold"><Counter target={language.size} className="text-xl font-bold"/></span> bytes
                     </p>
                 ))}
             </div>

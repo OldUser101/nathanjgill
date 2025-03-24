@@ -7,14 +7,14 @@ import { GitHubStats } from "@/components/nathanjgill/stats";
 export default function Home() {
   return (
     <div className="font-sans">
-        <HeaderPanel />
+        <HeaderPanel fixed/>
         <div className="h-14"/>
         <main>
           <Hero />
           <GitHubStats />
           <RepoGrid />
-          <FooterPanel />
         </main>
+        <FooterPanel />
     </div>
   );
 }

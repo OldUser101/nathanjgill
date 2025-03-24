@@ -5,12 +5,12 @@ export function IconText() {
     return (            
         <Link href="/" passHref legacyBehavior>
             <div className="h-16 flex items-center forecolor cursor-pointer">
-                <Image src="favicon-light.svg"
+                <Image src="/favicon-light.svg"
                         width={32}
                         height={32}
                         alt="Website Logo"
                         className="block dark:hidden mr-3"/>
-                <Image src="favicon-dark.svg"
+                <Image src="/favicon-dark.svg"
                         width={32}
                         height={32}
                         alt="Website Logo"

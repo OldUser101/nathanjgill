@@ -5,26 +5,27 @@ import { useEffect, useState } from "react";
 
 interface CounterProps {
   target: number;
-  duration?: number; // in seconds
+  duration?: number;
+  className?: string;
 }
 
-const Counter: React.FC<CounterProps> = ({ target, duration = 2 }) => {
+const Counter: React.FC<CounterProps> = ({ target, duration = 2, className = "text-3xl font-bold"}) => {
   const count = useMotionValue(0);
-  useTransform(count, (latest) => Math.floor(latest)); // Keeps whole numbers
+  useTransform(count, (latest) => Math.floor(latest));
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
     const controls = animate(count, target, {
       duration,
       ease: "easeOut",
-      onUpdate: (latest) => setDisplay(Math.floor(latest)), // Ensures re-render
+      onUpdate: (latest) => setDisplay(Math.floor(latest)),
     });
 
-    return () => controls.stop(); // Cleanup animation on unmount
+    return () => controls.stop();
   }, [count, target, duration]);
 
   return (
-    <motion.span className="text-3xl font-bold">
+    <motion.span className={className}>
       {display}
     </motion.span>
   );
