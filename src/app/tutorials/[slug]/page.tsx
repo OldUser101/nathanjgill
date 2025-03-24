@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: TutorialLoaderProps) {
 
   if (!tutorial) {
     return {
-      title: 'Nathan Gill | Tutorial Not Found',
+      title: 'Nathan Gill | Not Found',
     };
   }
 

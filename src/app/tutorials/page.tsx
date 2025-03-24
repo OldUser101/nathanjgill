@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { HeaderPanel } from '@/components/nathanjgill/header';
 import { FooterPanel } from '@/components/nathanjgill/footer';
+import { TutorialGrid } from '@/components/nathanjgill/tutorial_grid';
 
 export function generateMetadata() {
     return {
@@ -18,16 +19,11 @@ const loadTutorials = (): Tutorial[] => {
 
 export default function TutorialIndex() {
     const tutorials = loadTutorials();
-
     return (
         <div className="font-sans">
             <HeaderPanel fixed/>
             <div className="h-14"/>
-            <main>
-                {tutorials.map((t, i) => {
-                    return <a href={`/tutorials/${t.slug}`} key={i}>{t.title}</a>
-                })}
-            </main>
+            <TutorialGrid tutorials={tutorials}/>
             <FooterPanel />
         </div>
     );
