@@ -1,4 +1,4 @@
-import { Github, Mail, Gitlab } from "lucide-react";
+import { Github, Mail, Gitlab, Linkedin} from "lucide-react";
 
 export function GitHubSocial() {
     return (
@@ -35,6 +35,19 @@ export function EmailSocial() {
             className="flex items-center space-x-2 text-sm text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
         <Mail size={16} />
         <span className="font-medium">nathan@nathanjgill.uk</span>
+      </a>
+    );
+}
+
+export function LinkedinSocial() {
+    return (
+        <a 
+            href="https://www.linkedin.com/in/nathan-gill-b29094344/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center space-x-2 text-sm text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
+        <Linkedin size={16} />
+        <span className="font-medium">Nathan Gill</span>
       </a>
     );
 }

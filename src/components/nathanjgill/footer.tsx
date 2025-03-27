@@ -1,7 +1,7 @@
 "use client";
 
 import { IconText } from "@/components/nathanjgill/icon-text";
-import { GitHubSocial, EmailSocial, GitLabSocial } from "./social-links";
+import { GitHubSocial, EmailSocial, LinkedinSocial } from "./social-links";
 import { motion } from "framer-motion";
 
 export function FooterPanel() {
@@ -14,19 +14,21 @@ export function FooterPanel() {
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
                 <div>
-                    <h3 className="font-semibold text-lg p-1">Projects</h3>
+                    <h3 className="font-semibold text-lg p-1">Sitemap</h3>
                         <ul className="text-sm text-gray-700 dark:text-gray-400 space-y-2 ml-2">
-                            <li><a href="#" className="hover:text-black dark:hover:text-white transition-colors">Project 1</a></li>
-                            <li><a href="#" className="hover:text-black dark:hover:text-white transition-colors">Project 2</a></li>
+                            <li><a href="/projects" className="hover:text-black dark:hover:text-white transition-colors">Projects</a></li>
+                            <li><a href="/tutorials" className="hover:text-black dark:hover:text-white transition-colors">Tutorials</a></li>
+                            <li><a href="/about" className="hover:text-black dark:hover:text-white transition-colors">About</a></li>
+                            <li><a href="/tetra" className="hover:text-red-600 dark:hover:text-red-400 transition-colors">Tetra Software</a></li>
                         </ul>
                 </div>
 
                 <div>
                     <h3 className="font-semibold text-lg p-1">Contact</h3>
                     <ul className="ml-2 space-y-2">
+                        <LinkedinSocial/>
                         <EmailSocial/>
                         <GitHubSocial/>
-                        <GitLabSocial/>
                     </ul>
                 </div>
             </div>

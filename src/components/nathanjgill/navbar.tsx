@@ -55,6 +55,7 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
         <nav>
             <NavigationMenu className="hidden md:flex">
                 <NavigationMenuList>
+                    {/*
                     <div>
                         <Link href="/" legacyBehavior passHref>
                             <div className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
@@ -62,10 +63,11 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
                             </div>
                         </Link>
                     </div>
+                    */}
 
-                    <NavItem href="/">Projects</NavItem>
+                    <NavItem href="/projects">Projects</NavItem>
                     <NavItem href="/tutorials">Tutorials</NavItem>
-                    <NavItem href="/">About</NavItem>
+                    <NavItem href="/about">About</NavItem>
                 </NavigationMenuList>
             </NavigationMenu>
 
@@ -79,6 +81,7 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
                 </SheetTrigger>
                 <SheetContent side="left" className="w-full h-full">
                     <div className="flex flex-col mt-6 w-full h-full overflow-y-auto">
+                        {/*
                         <div>
                             <Link href="/" legacyBehavior passHref>
                                 <div className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
@@ -86,10 +89,11 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
                                 </div>
                             </Link>
                         </div>
+                        */}
 
-                        <MobileNavItem href="/">Projects</MobileNavItem>
+                        <MobileNavItem href="/projects">Projects</MobileNavItem>
                         <MobileNavItem href="/tutorials">Tutorials</MobileNavItem>
-                        <MobileNavItem href="/">About</MobileNavItem>
+                        <MobileNavItem href="/about">About</MobileNavItem>
 
                         <div className="flex-grow"/>
 

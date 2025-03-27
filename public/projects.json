@@ -1,0 +1,10 @@
+[
+    {
+      "title": "HybridApp",
+      "slug": "hybridapp",
+      "description": "A Windows application for creating and managing desktop style web apps.",
+      "banner_light": "/resources/HybridAppHomePageLight.png",
+      "banner_dark": "/resources/HybridAppHomePageDark.png",
+      "url": "https://github.com/OldUser101/HybridApp"
+    }
+]
