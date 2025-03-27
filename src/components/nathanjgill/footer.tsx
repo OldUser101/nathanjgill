@@ -3,6 +3,7 @@
 import { IconText } from "@/components/nathanjgill/icon-text";
 import { GitHubSocial, EmailSocial, LinkedinSocial } from "./social-links";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function FooterPanel() {
   return (
@@ -16,10 +17,10 @@ export function FooterPanel() {
                 <div>
                     <h3 className="font-semibold text-lg p-1">Sitemap</h3>
                         <ul className="text-sm text-gray-700 dark:text-gray-400 space-y-2 ml-2">
-                            <li><a href="/projects" className="hover:text-black dark:hover:text-white transition-colors">Projects</a></li>
-                            <li><a href="/tutorials" className="hover:text-black dark:hover:text-white transition-colors">Tutorials</a></li>
-                            <li><a href="/about" className="hover:text-black dark:hover:text-white transition-colors">About</a></li>
-                            <li><a href="/tetra" className="hover:text-red-600 dark:hover:text-red-400 transition-colors">Tetra Software</a></li>
+                            <li><Link href="/projects" className="hover:text-black dark:hover:text-white transition-colors">Projects</Link></li>
+                            <li><Link href="/tutorials" className="hover:text-black dark:hover:text-white transition-colors">Tutorials</Link></li>
+                            <li><Link href="/about" className="hover:text-black dark:hover:text-white transition-colors">About</Link></li>
+                            <li><Link href="/tetra" className="hover:text-red-600 dark:hover:text-red-400 transition-colors">Tetra Software</Link></li>
                         </ul>
                 </div>
 
