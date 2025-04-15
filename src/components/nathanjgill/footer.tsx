@@ -20,7 +20,7 @@ export function FooterPanel() {
                             <li><Link href="/projects" className="hover:text-black dark:hover:text-white transition-colors">Projects</Link></li>
                             <li><Link href="/tutorials" className="hover:text-black dark:hover:text-white transition-colors">Tutorials</Link></li>
                             <li><Link href="/about" className="hover:text-black dark:hover:text-white transition-colors">About</Link></li>
-                            <li><Link href="/tetra" className="hover:text-red-600 dark:hover:text-red-400 transition-colors">Tetra Software</Link></li>
+                            <li><Link href="http://archive.nathanjgill.uk" className="hover:text-black dark:hover:text-white transition-colors">Archive</Link></li>
                         </ul>
                 </div>
 

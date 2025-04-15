@@ -1,10 +1,8 @@
 "use client"
 
-import {
-    Card
-} from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Button } from '@/components/ui/button';
-import { GitFork, Star, Code, AlertTriangle } from "lucide-react";
+import { GitFork, Star, Code, AlertTriangle, SquareArrowOutUpRight} from "lucide-react";
 import { Repository } from "@/lib/repository";
 
 interface GitHubRepoCardProps {
@@ -57,11 +55,12 @@ export function GitHubRepoCard({ repo }: GitHubRepoCardProps) {
                             </p>
                         </div>
                         <div className="flex justify-end flex-col">
-                            <Button>
-                                <a href={repo.url} target="_blank" rel="noopener noreferrer">
-                                    View on GitHub
-                                </a>
-                            </Button>
+                            <a href={repo.url} target="_blank" rel="noopener noreferrer">
+                                <Button className="w-full">
+                                    <SquareArrowOutUpRight />                          
+                                        View on GitHub
+                                </Button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ export function Hero() {
             <h1 className="text-lg font-light">Explore projects and tutorials to unlock new skills and push the limits of your development potential.</h1>
             <h1 className="text-lg font-light pb-3">Discover powerful tools and techniques that help you elevate your skills to the next level.</h1>
             <div className="grid grid-cols-2 gap-4 max-w-max content-start">
-                <Button>Explore Projects</Button>
+                <Link href="/projects"><Button>Explore Projects</Button></Link>
                 <Link href="/tutorials"><Button variant="ghost">Explore Tutorials</Button></Link>
             </div>
         </motion.div>
