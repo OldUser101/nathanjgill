@@ -5,7 +5,7 @@ import { FooterPanel } from "@/components/nathanjgill/footer";
 import { motion } from "framer-motion";
 import MarkdownRenderer from "@/components/nathanjgill/markdownRenderer";
 
-export default function Home() {
+export default function About() {
   return (
     <div className="font-sans">
         <HeaderPanel fixed/>
