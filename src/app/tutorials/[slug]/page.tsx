@@ -44,8 +44,10 @@ export default async function TutorialLoader({ params, searchParams }: TutorialL
   const currentChapter = tutorial.chapters[chapterNumber - 1];
   if (!currentChapter) return notFound();
 
+  const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
+
   return (
-      <TutorialPage chapterNumber={chapterNumber - 1} tutorial={tutorial} slug={slug} completedChapters={[]}/>
+      <TutorialPage chapterNumber={chapterNumber - 1} tutorial={tutorial} slug={slug} completedChapters={[]} branch={branch}/>
   );
 }
 
