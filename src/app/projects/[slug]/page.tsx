@@ -38,9 +38,10 @@ export default async function TutorialLoader({ params }: ProjectLoaderProps) {
 
   if (!project) return notFound();
 
+  const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
 
   return (
-      <ProjectPage project={project}/>
+      <ProjectPage project={project} branch={branch}/>
   );
 }
 

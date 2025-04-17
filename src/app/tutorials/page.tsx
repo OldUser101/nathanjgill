@@ -19,12 +19,13 @@ const loadTutorials = (): Tutorial[] => {
 
 export default function TutorialIndex() {
     const tutorials = loadTutorials();
+    const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
     return (
         <div className="font-sans">
             <HeaderPanel fixed/>
             <div className="h-14"/>
             <TutorialGrid tutorials={tutorials}/>
-            <FooterPanel />
+            <FooterPanel branch={branch}/>
         </div>
     );
 }

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import MarkdownRenderer from "@/components/nathanjgill/markdownRenderer";
 
 export default function About() {
+  const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
   return (
     <div className="font-sans">
         <HeaderPanel fixed/>
@@ -16,7 +17,7 @@ export default function About() {
             <MarkdownRenderer markdownUrl="https://raw.githubusercontent.com/OldUser101/OldUser101/refs/heads/master/README.md"/>
           </div>
         </motion.div>
-        <FooterPanel />
+        <FooterPanel branch={branch}/>
     </div>
   );
 }

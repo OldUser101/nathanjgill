@@ -14,12 +14,13 @@ export interface TutorialPageProps {
     slug: string,
     chapterNumber: number,
     tutorial: Tutorial,
-    completedChapters: boolean[]
+    completedChapters: boolean[],
+    branch: "prod" | "dev",
 }
 
 const toBoolean = (value: string): boolean => value.toLowerCase() === 'true';
 
-export default function TutorialPage({ slug, chapterNumber, tutorial }: TutorialPageProps) {
+export default function TutorialPage({ slug, chapterNumber, tutorial, branch }: TutorialPageProps) {
     const chapter: Chapter = tutorial.chapters[chapterNumber];
     const [completedChapters, setCompletedChapters] = useState<boolean[]>([]);
 
@@ -58,7 +59,7 @@ export default function TutorialPage({ slug, chapterNumber, tutorial }: Tutorial
             </div>
 
             <div className="hidden md:block h-4"/>
-            <TutorialHeaderPanel slug={slug} chapterNumber={chapterNumber} tutorial={tutorial} completedChapters={completedChapters}/>
+            <TutorialHeaderPanel slug={slug} chapterNumber={chapterNumber} tutorial={tutorial} completedChapters={completedChapters} branch={branch}/>
             <div className="h-14 md:h-2"/>
             <main>
                 <motion.div animate={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }} transition={{ duration: 0.5 }} className="mx-4">
@@ -77,7 +78,7 @@ export default function TutorialPage({ slug, chapterNumber, tutorial }: Tutorial
             <TutorialNav slug={slug} chapterNumber={chapterNumber} tutorial={tutorial} completedChapters={completedChapters} markComplete={markChapterComplete} markIncomplete={markChapterIncomplete}/>
             <div className="w-full border-b border-neutral-700"/>
             <TutorialResources tutorial={tutorial}/>
-            <FooterPanel />
+            <FooterPanel branch={branch}/>
         </div>
     );
 }

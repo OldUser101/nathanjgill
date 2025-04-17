@@ -3,9 +3,10 @@
 import { IconText } from "@/components/nathanjgill/icon-text";
 import { GitHubSocial, EmailSocial, LinkedinSocial } from "./social-links";
 import { motion } from "framer-motion";
+import { DevProdSwitch, DevProdSwitcherProps} from "./dev-prod-switcher";
 import Link from "next/link";
 
-export function FooterPanel() {
+export function FooterPanel({ branch }: DevProdSwitcherProps) {
   return (
     <motion.footer initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="h-14 flex forecolor w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 w-full">
@@ -21,6 +22,7 @@ export function FooterPanel() {
                             <li><Link href="/tutorials" className="hover:text-black dark:hover:text-white transition-colors">Tutorials</Link></li>
                             <li><Link href="/about" className="hover:text-black dark:hover:text-white transition-colors">About</Link></li>
                             <li><Link href="http://archive.nathanjgill.uk" className="hover:text-black dark:hover:text-white transition-colors">Archive</Link></li>
+                            <li><DevProdSwitch branch={branch} className="hover:text-black dark:hover:text-white transition-colors"></DevProdSwitch></li>
                         </ul>
                 </div>
 
