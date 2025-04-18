@@ -12,7 +12,7 @@ export default function Card() {
   }, []);
 
   return (
-      <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-screen font-sans">
+      <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-screen font-sans overflow-x-hidden overflow-y-hidden">
         <div className="fixed top-4 right-4">
           <ModeToggle />
         </div>
