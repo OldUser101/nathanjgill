@@ -42,3 +42,4 @@ next-env.d.ts
 
 # VSCode Workspace
 *.code-workspace
+/.vscode/
