@@ -8,13 +8,13 @@ import Link from "next/link";
 
 export function FooterPanel({ branch }: DevProdSwitcherProps) {
   return (
-    <motion.footer initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="h-14 flex forecolor w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 w-full">
-            <div className="h-16 flex flex-row items-center justify-center space-x-3 forecolor">
+    <motion.footer initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="forecolor w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-6 w-full">
+            <div className="flex justify-center items-center space-x-3 forecolor">
                 <IconText/>
             </div>
 
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 px-6">
                 <div>
                     <h3 className="font-semibold text-lg p-1">Sitemap</h3>
                         <ul className="text-sm text-gray-700 dark:text-gray-400 space-y-2 ml-2">
