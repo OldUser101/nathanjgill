@@ -11,6 +11,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
+  const previewStyle = branch === "dev" ? `
+    .preview {
+        display: block;
+    }
+  `:`
+    .preview {
+        display: none;
+    }
+  `;
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -23,6 +33,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" id="apple-touch-icon" href="/apple-touch-icon.png"/>
         <link rel="mask-icon" href="/favicon-light.svg" color="#ffffff" media="(prefers-color-scheme: light)"/>
         <link rel="mask-icon" href="/favicon-light.svg" color="#000000" media="(prefers-color-scheme: dark)"/>
+        <style dangerouslySetInnerHTML={{ __html: previewStyle }} />
       </head>
       <body>
         <ThemeProvider
