@@ -25,7 +25,7 @@ export default function TutorialIndex() {
             <HeaderPanel fixed/>
             <div className="h-14"/>
             <TutorialGrid tutorials={tutorials}/>
-            <FooterPanel branch={branch}/>
+            <FooterPanel/>
         </div>
     );
 }
