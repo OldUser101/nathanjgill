@@ -17,7 +17,7 @@ export default function About() {
             <MarkdownRenderer markdownUrl="https://raw.githubusercontent.com/OldUser101/OldUser101/refs/heads/master/README.md"/>
           </div>
         </motion.div>
-        <FooterPanel branch={branch}/>
+        <FooterPanel/>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function Home() {
           <GitHubStats />
           <RepoGrid />
         </main>
-        <FooterPanel branch={branch}/>
+        <FooterPanel/>
     </div>
   );
 }

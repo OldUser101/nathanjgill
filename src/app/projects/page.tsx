@@ -19,7 +19,6 @@ export function generateMetadata() {
 
 export default function Projects() {
   const projects = loadProjects();
-  const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
   return (
     <div className="font-sans">
         <HeaderPanel fixed/>
@@ -27,7 +26,7 @@ export default function Projects() {
         <main>
           <ProjectGrid projects={projects}/>
         </main>
-        <FooterPanel branch={branch}/>
+        <FooterPanel/>
     </div>
   );
 }

@@ -13,10 +13,9 @@ import Image from "next/image";
 
 interface ProjectPageProps {
     project: Project,
-    branch: "prod" | "dev",
 }
 
-export function ProjectPage({ project, branch } : ProjectPageProps) {
+export function ProjectPage({ project } : ProjectPageProps) {
     const { theme } = useTheme();
 
     const [mounted, setMounted] = useState(false);
@@ -69,7 +68,7 @@ export function ProjectPage({ project, branch } : ProjectPageProps) {
                 </motion.div>
             </main>
             <div className="w-full border-b border-neutral-700"/>
-            <FooterPanel branch={branch}/>
+            <FooterPanel/>
         </div>
     );
 } 
