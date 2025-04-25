@@ -31,7 +31,10 @@ export function HeaderPanel({ fixed, useChapter, tutorial, slug, completedChapte
           <Navbar useChapter={useChapter} tutorial={tutorial} slug={slug} completedChapters={completedChapters}/>
         </div>
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-2">
+          <p className="border-dashed border-2 text-neutral-700 text-sm dark:text-neutral-400 border-neutral-700 dark:border-neutral-400 rounded-md px-1">
+            Preview
+          </p>
           <ModeToggle/>
         </div>
     </motion.header>
