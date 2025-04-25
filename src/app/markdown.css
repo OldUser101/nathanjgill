@@ -72,6 +72,7 @@
   color: var(--md-text);
   margin-left: 1.5rem;
   margin-bottom: 1rem;
+  list-style-type: disc;
 }
 
 .markdown-content li {
