@@ -55,16 +55,6 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
         <nav>
             <NavigationMenu className="hidden md:flex">
                 <NavigationMenuList>
-                    {/*
-                    <div>
-                        <Link href="/" legacyBehavior passHref>
-                            <div className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
-                                Tetra Software
-                            </div>
-                        </Link>
-                    </div>
-                    */}
-
                     <NavItem href="/projects">Projects</NavItem>
                     <NavItem href="/tutorials">Tutorials</NavItem>
                     <NavItem href="/about">About</NavItem>
@@ -81,16 +71,6 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
                 </SheetTrigger>
                 <SheetContent side="left" className="w-full h-full">
                     <div className="flex flex-col mt-6 w-full h-full overflow-y-auto">
-                        {/*
-                        <div>
-                            <Link href="/" legacyBehavior passHref>
-                                <div className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 cursor-pointer">
-                                    Tetra Software
-                                </div>
-                            </Link>
-                        </div>
-                        */}
-
                         <MobileNavItem href="/projects">Projects</MobileNavItem>
                         <MobileNavItem href="/tutorials">Tutorials</MobileNavItem>
                         <MobileNavItem href="/about">About</MobileNavItem>
