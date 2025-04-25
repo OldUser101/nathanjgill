@@ -32,7 +32,7 @@ export function HeaderPanel({ fixed, useChapter, tutorial, slug, completedChapte
         </div>
 
         <div className="hidden md:flex items-center gap-2">
-          <p className="border-dashed border-2 text-neutral-700 text-sm dark:text-neutral-400 border-neutral-700 dark:border-neutral-400 rounded-md px-1">
+          <p className="preview border-dashed border-2 text-neutral-700 text-sm dark:text-neutral-400 border-neutral-700 dark:border-neutral-400 rounded-md px-1">
             Preview
           </p>
           <ModeToggle/>
