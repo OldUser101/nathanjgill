@@ -94,8 +94,11 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
 
                         <div className="flex-grow"/>
 
-                        <div className="mb-6">
+                        <div className="mb-6 flex items-center gap-2">
                             <ModeToggle/>
+                            <p className="flex-none inline-block border-dashed border-2 text-neutral-700 text-sm dark:text-neutral-400 border-neutral-700 dark:border-neutral-400 rounded-md px-1">
+                                Preview
+                            </p>
                         </div>
                     </div>
                 </SheetContent>
