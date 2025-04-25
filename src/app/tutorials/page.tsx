@@ -19,7 +19,6 @@ const loadTutorials = (): Tutorial[] => {
 
 export default function TutorialIndex() {
     const tutorials = loadTutorials();
-    const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
     return (
         <div className="font-sans">
             <HeaderPanel fixed/>

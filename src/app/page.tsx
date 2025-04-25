@@ -5,7 +5,6 @@ import { RepoGrid } from "@/components/nathanjgill/repo-grid";
 import { GitHubStats } from "@/components/nathanjgill/stats";
 
 export default function Home() {
-  const branch = (process.env.BRANCH_TYPE as "prod" | "dev") || "prod";
   return (
     <div className="font-sans">
         <HeaderPanel fixed/>
