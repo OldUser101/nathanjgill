@@ -76,7 +76,7 @@ export function BranchSwitch() {
                                             {branch.branch === "master" || branch.branch === "main" ? <Globe /> : <GitBranch />}
                                             <p className="font-mono">{branch.branch}</p>
                                         </div>
-                                        {branch.current || branch.branch === "master"? <Check/> : <div className="w-[1.2rem]" />}
+                                        {branch.current ? <Check/> : <div className="w-[1.2rem]" />}
                                     </a>
                             </Button>
                         ))}   
