@@ -15,9 +15,9 @@ export function GitHubAbout() {
                 <div className="bg-gradient-to-t from-white/100 to-white/0 dark:from-black/100 dark:to-black/0 h-10">
 
                 </div>
-                <div className="bg-white dark:bg-black pl-2 pb-2 w-full">
-                    <Link href="/about">
-                        <Button variant="ghost">
+                <div className="bg-white dark:bg-black px-2 pb-2 w-full">
+                    <Link href="/about" className="w-full">
+                        <Button variant="ghost" className="w-full lg:w-auto">
                             <ArrowRight />
                             Read More
                         </Button>
