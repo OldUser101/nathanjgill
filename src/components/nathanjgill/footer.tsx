@@ -4,6 +4,7 @@ import { IconText } from "@/components/nathanjgill/icon-text";
 import { GitHubSocial, EmailSocial, LinkedinSocial } from "./social-links";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { BranchSwitch } from "./branch-switch";
 
 export function FooterPanel() {
   return (
@@ -34,9 +35,14 @@ export function FooterPanel() {
                 </div>
             </div>
             
-            <p className="col-span-1 md:col-span-2 text-center text-sm text-gray-700 dark:text-gray-400 mt-4 pb-6">
-                Copyright © 2024-2025, Nathan Gill
-            </p>
+            <div className="col-span-1 md:col-span-2 relative">
+                <div className="absolute h-full flex items-center mx-3">
+                    <BranchSwitch />
+                </div>
+                <p className="text-center text-sm text-gray-700 dark:text-gray-400 mt-4 pb-6">
+                    Copyright © 2024-2025, Nathan Gill
+                </p>
+            </div>
         </div>
     </motion.footer>
   );
