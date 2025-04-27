@@ -35,7 +35,7 @@ export function BranchSwitch() {
         fetchBranches();
     }, []);
 
-    if (!branches || loading) {
+    if (!branches || loading || branches.status != 200) {
         return (
             <></>
         );
