@@ -8,7 +8,7 @@ interface GitHubStatsCardProps {
 
 export function GitHubStatsCard({ stats }: GitHubStatsCardProps) {
     return (
-        <Card className="flex flex-col md:flex-row gap-4 p-4">
+        <Card className="flex flex-none flex-col md:flex-row gap-4 p-4">
             <div>
                 {
                     // eslint-disable-next-line @next/next/no-img-element

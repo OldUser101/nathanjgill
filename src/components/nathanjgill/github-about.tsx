@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function GitHubAbout() {
     return (
-        <Card className="p-4 max-h-60 overflow-hidden relative flex grow">
+        <Card className="p-4 max-h-60 overflow-hidden relative flex flex-1">
             <div>
                 <h1 className="text-2xl font-semibold">About</h1>
                 <MarkdownRenderer markdownUrl="https://raw.githubusercontent.com/OldUser101/OldUser101/refs/heads/master/README.md"/>
@@ -15,7 +15,7 @@ export function GitHubAbout() {
                 <div className="bg-gradient-to-t from-white/100 to-white/0 dark:from-black/100 dark:to-black/0 h-10">
 
                 </div>
-                <div className="bg-black p-2">
+                <div className="bg-black pl-2 pb-2">
                     <Link href="/about">
                         <Button variant="ghost">
                             <ArrowRight />

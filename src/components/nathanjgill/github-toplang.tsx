@@ -9,7 +9,7 @@ interface GitHubTopLangProps {
 
 export function GitHubTopLang({ stats }: GitHubTopLangProps) {
     return (
-        <Card className="p-4 flex flex-col">
+        <Card className="p-4 flex flex-col flex-none">
             <h1 className="text-2xl font-semibold mb-2">Top Languages</h1>
             <div className="ml-4 text-lg flex flex-col h-full grow">
                 {stats.topLanguages?.slice(0, 5).map((language: Language) => (
