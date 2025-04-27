@@ -1,6 +1,5 @@
 "use client";
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '../ui/button';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -22,7 +21,6 @@ interface DeployData {
 export function BranchSwitch() {
     const [branches, setState] = useState<DeployData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
-    const [open, setOpen] = useState(false)
 
     useEffect(() => {
         const fetchBranches = async () => {
