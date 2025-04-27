@@ -68,7 +68,7 @@ export function BranchSwitch() {
                             Switch to a different branch of this website.
                         </DialogDescription>
                     </DialogHeader>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 max-h-64 overflow-y-auto">
                         {branches.branches.map((branch, index) => (
                             <Button variant="ghost" className="flex items-center justify-between" key={index}>
                                     <a href={branch.url} className="flex items-center w-full justify-between gap-2">
@@ -79,7 +79,7 @@ export function BranchSwitch() {
                                         {branch.current ? <Check/> : <div className="w-[1.2rem]" />}
                                     </a>
                             </Button>
-                        ))}   
+                        ))}
                     </div>
                 </DialogContent>
             </Dialog>
@@ -98,7 +98,7 @@ export function BranchSwitch() {
                             Switch to different branch of this website.
                         </DrawerDescription>
                     </DrawerHeader>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 max-h-64 overflow-y-auto">
                         {branches.branches.map((branch, index) => (
                             <Button variant="ghost" className="flex items-center justify-between" key={index}>
                                     <a href={branch.url} className="flex items-center w-full justify-between gap-2">
@@ -109,7 +109,7 @@ export function BranchSwitch() {
                                         {branch.current ? <Check/> : <div className="w-[1.2rem]" />}
                                     </a>
                             </Button>
-                        ))}   
+                        ))}
                     </div>               
                 </DrawerContent>
             </Drawer>
