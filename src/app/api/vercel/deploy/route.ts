@@ -41,7 +41,7 @@ export async function GET() {
     }
 
     const branchesData = await branchesRes.json();
-    // esline-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const existingBranches = new Set(branchesData.map((b: any) => b.name));
 
     const deployRes = await fetch(`https://api.vercel.com/v6/deployments?projectId=${REPO_ID}`, {
@@ -55,7 +55,7 @@ export async function GET() {
     }
 
     const deploymentsData = await deployRes.json();
-    // esline-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const deployments = deploymentsData.deployments as any[];
 
     const latestPerBranch: { [branch: string]: { url: string; created: number, current: boolean } } = {};
