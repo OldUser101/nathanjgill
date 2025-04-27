@@ -12,10 +12,10 @@ export function GitHubAbout() {
                 <MarkdownRenderer markdownUrl="https://raw.githubusercontent.com/OldUser101/OldUser101/refs/heads/master/README.md"/>
             </div>
             <div className="absolute bottom-0 left-0 w-full">
-                <div className="bg-gradient-to-t from-white/100 to-white/0 dark:from-black/100 dark:to-black/0 h-10">
+                <div className="bg-gradient-to-t from-[hsl(var(--background))]/100 to-[hsl(var(--background))]/0 dark:from-[hsl(var(--background))]/100 dark:to-[hsl(var(--background))]/0 h-10">
 
                 </div>
-                <div className="bg-white dark:bg-black px-2 pb-2 w-full">
+                <div className="bg-[hsl(var(--background))] dark:bg-[hsl(var(--background))] px-2 pb-2 w-full">
                     <Link href="/about" className="w-full">
                         <Button variant="ghost" className="w-full lg:w-auto">
                             <ArrowRight />
