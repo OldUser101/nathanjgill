@@ -8,7 +8,7 @@ import { BranchSwitch } from "./branch-switch";
 
 export function FooterPanel() {
   return (
-    <motion.footer initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="forecolor w-full">
+    <motion.footer initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="forecolor w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-6 w-full">
             <div className="flex justify-center items-center space-x-3 forecolor">
                 <IconText/>
