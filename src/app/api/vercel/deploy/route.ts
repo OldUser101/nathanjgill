@@ -3,7 +3,6 @@ interface DeployData {
     branches: Array<{
         url: string,
         branch: string,
-        created: number,
         current: boolean
     }>
 }
@@ -27,7 +26,7 @@ export async function GET() {
         return Response.json(cache.data);
     }
 
-    const { VERCEL_DEPLOYMENTS_TOKEN, REPO_ID, GITHUB_TOKEN, VERCEL_GIT_COMMIT_REF } = process.env;
+    const { REPO_ID, GITHUB_TOKEN, VERCEL_GIT_COMMIT_REF } = process.env;
 
     const branchesRes = await fetch(`https://api.github.com/repos/OldUser101/${REPO_ID}/branches`, {
         headers: {
@@ -42,41 +41,22 @@ export async function GET() {
 
     const branchesData = await branchesRes.json();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const existingBranches = new Set(branchesData.map((b: any) => b.name));
+    const existingBranches = branchesData.map((b: any) => b.name);
 
-    const deployRes = await fetch(`https://api.vercel.com/v6/deployments?projectId=${REPO_ID}`, {
-        headers: {
-            Authorization: `Bearer ${VERCEL_DEPLOYMENTS_TOKEN}`
-        }
-    })
+    const branchUrls: { [branch: string]: {url: string, current: boolean } } = {};
 
-    if (!deployRes.ok) {
-        return Response.json({ status: 500 });
-    }
-
-    const deploymentsData = await deployRes.json();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const deployments = deploymentsData.deployments as any[];
-
-    const latestPerBranch: { [branch: string]: { url: string; created: number, current: boolean } } = {};
-
-    for (const d of deployments) {
-        const branch = d.meta?.githubCommitRef;
-        const created = d.created;
-        if (!branch || !existingBranches.has(branch)) continue;
-        if (!latestPerBranch[branch] || created > latestPerBranch[branch].created) {
-            if (branch === "master" || branch === "main") {
-                latestPerBranch[branch] = { url: "https://nathanjgill.uk", created, current: branch === VERCEL_GIT_COMMIT_REF };
-            } else {
-                latestPerBranch[branch] = { url: `https://${d.url}`, created, current: branch === VERCEL_GIT_COMMIT_REF };
-            }
+    for (let i: number = 0; i < existingBranches.length; i++) {
+        const b = existingBranches[i];
+        if (b === "master" || b === "main") {
+            branchUrls[b] = { url: "https://nathanjgill.uk", current: b === VERCEL_GIT_COMMIT_REF };
+        } else {
+            branchUrls[b] = { url: `https://nathanjgill-git-${b}-nathanjgill.vercel.app`, current: b === VERCEL_GIT_COMMIT_REF };
         }
     }
 
-    const branchLinks = Object.entries(latestPerBranch).map(([branch, { url, created, current }]) => ({
+    const branchLinks = Object.entries(branchUrls).map(([branch, { url, current }]) => ({
         branch,
         url,
-        created,
         current
     }));
 

@@ -13,7 +13,6 @@ interface DeployData {
     branches: Array<{
         url: string,
         branch: string,
-        created: number,
         current: boolean
     }>
 }
@@ -45,7 +44,7 @@ export function BranchSwitch() {
 
     for (let i: number = 0; i < branches.branches.length; i++) {
         if (branches.branches[i].branch === "master" || branches.branches[i].branch === "main") {
-            const old: { url: string, branch: string, created: number, current: boolean } = branches.branches[0];
+            const old: { url: string, branch: string, current: boolean } = branches.branches[0];
             branches.branches[0] = branches.branches[i];
             branches.branches[i] = old;
         }
