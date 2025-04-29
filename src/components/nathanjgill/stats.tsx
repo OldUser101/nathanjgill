@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import axios, {AxiosResponse} from 'axios';
 import { AlertTriangle } from "lucide-react";
 import { GetStatsFromGraphQlRestQuery, Stats } from "@/lib/stats";
 import { motion } from 'framer-motion';
@@ -9,13 +8,13 @@ import { GitHubStatsCard } from './github-stats';
 import { GitHubAbout } from './github-about';
 import { GitHubTopLang } from './github-toplang';
 
-interface AxiosCache {
+interface WebCache {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any,
     timestamp: number
 }
 
-let axiosCache: AxiosCache = {
+let apiCache: WebCache = {
     data: null,
     timestamp: 0
 }
@@ -29,23 +28,33 @@ export function GitHubStats() {
     useEffect(() => {
         const fetchStats = async () => {
             try {
-                const response_stat = await axios.get("/api/github/stat");
+                const response_stat = await fetch("/api/github/stat");
+
+                if (!response_stat.ok) {
+                    throw Error("Failed to make API request.");
+                }
+
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                let response_user: AxiosResponse<any, any> | null = null;
+                let response_user: Response | null = null;
 
                 const now = Date.now();
-                if (axiosCache.data && now - axiosCache.timestamp < CACHE_DURATION) {
-                    response_user = axiosCache.data;
+                if (apiCache.data && now - apiCache.timestamp < CACHE_DURATION) {
+                    response_user = apiCache.data;
                 } else {
-                    response_user = await axios.get("https://api.github.com/users/OldUser101");
-                    axiosCache = { data: response_user, timestamp: now };
+                    response_user = await fetch("https://api.github.com/users/OldUser101");
+
+                    if (!response_user.ok) {
+                        throw Error("Failed to make API request.");
+                    }
+
+                    apiCache = { data: response_user, timestamp: now };
                 }
 
                 if (!response_user) {
                     throw Error("Failed to access cache or make API request.");
                 }
 
-                setState(GetStatsFromGraphQlRestQuery(response_stat.data, response_user.data));
+                setState(GetStatsFromGraphQlRestQuery(await response_stat.json(), await response_user.json()));
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching stats", error);

@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { GitHubRepoCard } from "@/components/nathanjgill/github-repo";
 import { AlertTriangle } from "lucide-react";
 import { motion } from "framer-motion";
@@ -16,8 +15,13 @@ export function RepoGrid() {
     useEffect(() => {
         const fetchRepoList = async () => {
             try {
-                const response = await axios.get("/api/github/repo");
-                setRepoList(GetRepoListFromGraphQlQuery(response.data));
+                const response = await fetch("/api/github/repo");
+
+                if (!response.ok) {
+                    throw Error("Failed to make API request.");
+                }
+
+                setRepoList(GetRepoListFromGraphQlQuery(await response.json()));
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching repo list", error);

@@ -1,5 +1,3 @@
-import axios, { AxiosResponse } from "axios";
-
 export type Stats = {
     avatarUrl: string,
     totalDisk: number,
@@ -95,19 +93,4 @@ export function GetStatsFromGraphQlRestQuery(gres: StatGraphQLResponse, rres: RE
     stats.topLanguages = sortMapByValue(languages);
 
     return stats;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function QueryGitHubRestApi(): Promise<AxiosResponse<any, any> | null> {
-    const accessToken = process.env.GITHUB_TOKEN;
-
-    if (!accessToken) {
-        return null;
-    }
-
-    return await axios.get("https://api.github.com/users/OldUser101", {
-        headers: {
-            "Authorization": process.env.GITHUB_TOKEN
-        }
-    });
 }

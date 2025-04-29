@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
@@ -24,8 +23,13 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownUrl, classN
   useEffect(() => {
     const fetchMarkdown = async () => {
       try {
-        const response = await axios.get<string>(markdownUrl);
-        const markdownText = response.data;
+        const response = await fetch(markdownUrl);
+
+        if (!response.ok) {
+            throw Error("Failed to retrieve Markdown content.");
+        }
+
+        const markdownText = await response.text();
 
         const result = await unified()
           .use(remarkParse)
@@ -37,24 +41,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ markdownUrl, classN
           .process(markdownText);
 
         const htmlContent = result.toString();
-
-        // const rehypeHtml = await rehype()
-        //   .data('settings', { fragment: true })
-        //   .use(remarkParse)
-        //   .use(remarkGfm)
-        //   .use(remarkRehype, {allowDangerousHtml: true})
-        //   .use(rehypeRaw)
-        //   .use(rehypeStringify)
-        //   .use(rehypeCodeTitles)
-        //   .use(rehypePrism)
-        //   .use(rehypeReact)
-        //   .process(htmlContent);
-
-          // const rehypeHtml = await rehype()
-          // .data('settings', { fragment: true })
-          // .use(rehypeRaw)
-          // .use(rehypePrism)
-          // .process(htmlContent);
 
         setMarkdownContent(htmlContent);
       } catch (err) {
