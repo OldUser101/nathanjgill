@@ -43,8 +43,8 @@ export default function RootLayout({
             enableSystem
           >
             {children}
-            <SpeedInsights />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
