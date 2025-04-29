@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from '../ui/button';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { GitBranch, Globe, Check } from 'lucide-react';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '../ui/drawer';
@@ -24,8 +23,13 @@ export function BranchSwitch() {
     useEffect(() => {
         const fetchBranches = async () => {
             try {
-                const response = await axios.get("/api/vercel/deploy");
-                setState(response.data);
+                const response = await fetch("/api/vercel/deploy");
+
+                if (!response.ok) {
+                    throw Error("Failed to make API request.");
+                }
+
+                setState(await response.json());
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching branches", error);
