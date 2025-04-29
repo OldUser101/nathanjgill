@@ -38,23 +38,21 @@ export function GitHubStats() {
                 let response_user: Response | null = null;
 
                 const now = Date.now();
-                if (apiCache.data && now - apiCache.timestamp < CACHE_DURATION) {
-                    response_user = apiCache.data;
-                } else {
+                if (!(apiCache.data && now - apiCache.timestamp < CACHE_DURATION)) {
                     response_user = await fetch("https://api.github.com/users/OldUser101");
 
                     if (!response_user.ok) {
                         throw Error("Failed to make API request.");
                     }
 
-                    apiCache = { data: response_user, timestamp: now };
+                    apiCache = { data: await response_user.json(), timestamp: now };
                 }
 
-                if (!response_user) {
+                if (!apiCache.data) {
                     throw Error("Failed to access cache or make API request.");
                 }
 
-                setState(GetStatsFromGraphQlRestQuery(await response_stat.json(), await response_user.json()));
+                setState(GetStatsFromGraphQlRestQuery(await response_stat.json(), apiCache.data));
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching stats", error);
