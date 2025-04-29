@@ -43,9 +43,9 @@ export default function RootLayout({
             enableSystem
           >
             {children}
+            <SpeedInsights />
         </ThemeProvider>
       </body>
-      <SpeedInsights />
     </html>
   );
 }
