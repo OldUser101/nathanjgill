@@ -36,9 +36,6 @@ export function FooterPanel() {
             </div>
             
             <div className="col-span-1 md:col-span-2 relative">
-                <div className="absolute h-full flex items-center mx-3">
-                    <BranchSwitch />
-                </div>
                 <p className="text-center text-sm text-gray-700 dark:text-gray-400 mt-4 pb-6">
                     Copyright © 2024-2025, Nathan Gill
                 </p>
