@@ -4,7 +4,6 @@ import { IconText } from "@/components/nathanjgill/icon-text";
 import { GitHubSocial, EmailSocial, LinkedinSocial } from "./social-links";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BranchSwitch } from "./branch-switch";
 
 export function FooterPanel() {
   return (
