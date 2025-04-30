@@ -5,6 +5,7 @@ import { Navbar } from "@/components/nathanjgill/navbar";
 import { IconText } from "@/components/nathanjgill/icon-text";
 import { motion } from "framer-motion";
 import { Tutorial } from "@/lib/tutorial";
+import { BranchSwitch } from "./branch-switch";
 
 interface HeaderPanelProps {
   fixed?: boolean,
@@ -35,6 +36,7 @@ export function HeaderPanel({ fixed, useChapter, tutorial, slug, completedChapte
           <p className="preview font-bold border-dashed border-2 text-neutral-700 text-sm dark:text-neutral-400 border-neutral-700 dark:border-neutral-400 rounded-md px-1">
             Preview
           </p>
+          <BranchSwitch />
           <ModeToggle/>
         </div>
     </motion.header>
