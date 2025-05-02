@@ -108,12 +108,13 @@
 }
 
 .markdown-content a {
-  color: var(--md-link);
+  color: var(--md-link-hover);
+  text-decoration-line: underline;
   transition: color 0.2s ease-in-out;
 }
 
 .markdown-content a:hover {
-  color: var(--md-link-hover);
+  color: var(--md-link);
 }
 
 .markdown-content blockquote {
