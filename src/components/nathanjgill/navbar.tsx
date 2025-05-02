@@ -18,25 +18,21 @@ import { BranchSwitch } from "./branch-switch";
 
 function NavItem({children, href}: {children: React.ReactNode, href: string}) {
     return (
-        <div>
             <Link href={href} legacyBehavior passHref>
-                <div className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
+                <li className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
                     {children}
-                </div>
+                </li>
             </Link>
-        </div>
     );
 }
 
 function MobileNavItem({children, href}: {children: React.ReactNode, href: string}) {
     return (
-        <div>
             <Link href={href} legacyBehavior passHref>
-                <div className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
+                <li className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
                     {children}
-                </div>
+                </li>
             </Link>
-        </div>
     );
 }
 
@@ -63,14 +59,14 @@ export function Navbar({ useChapter, tutorial, completedChapters, slug }: Navbar
             </NavigationMenu>
 
             <Sheet open={open} onOpenChange={setOpen}>
-                <SheetTitle></SheetTitle>
-                <SheetDescription></SheetDescription>
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className="md:hidden">
                         <Menu/>
                     </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-full h-full">
+                    <SheetTitle></SheetTitle>
+                    <SheetDescription></SheetDescription>
                     <div className="flex flex-col mt-6 w-full h-full overflow-y-auto">
                         <MobileNavItem href="/projects">Projects</MobileNavItem>
                         <MobileNavItem href="/tutorials">Tutorials</MobileNavItem>
