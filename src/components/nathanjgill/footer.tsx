@@ -27,9 +27,9 @@ export function FooterPanel() {
                 <div>
                     <h3 className="font-semibold text-lg p-1">Contact</h3>
                     <ul className="ml-2 space-y-2">
-                        <LinkedinSocial/>
-                        <EmailSocial/>
-                        <GitHubSocial/>
+                        <li><LinkedinSocial/></li>
+                        <li><EmailSocial/></li>
+                        <li><GitHubSocial/></li>
                     </ul>
                 </div>
             </div>
