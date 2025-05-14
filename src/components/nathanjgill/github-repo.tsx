@@ -39,7 +39,7 @@ export function GitHubRepoCard({ repo }: GitHubRepoCardProps) {
                     </div>
                 </div>
                 <div className="mt-auto">
-                    <p className="flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-400 mt-2 justify-self-end">
+                    <p className="flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-400 mt-2">
                                 <Code size={16} />
                                 <span>Language: {repo.languageName}</span>
                     </p>
