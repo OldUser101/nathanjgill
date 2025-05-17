@@ -3,14 +3,14 @@
       "title": "HybridApp",
       "slug": "hybridapp",
       "description": "A Windows application for creating and managing desktop style web apps",
-      "banner_light": "/resources/hybridapp/HybridAppHomePageLight.png",
-      "banner_dark": "/resources/hybridapp/HybridAppHomePageDark.png",
+      "banner_light": "/resources/hybridapp/HybridAppLight.png",
+      "banner_dark": "/resources/hybridapp/HybridAppDark.png",
       "url": "https://github.com/OldUser101/HybridApp",
       "content": "/resources/hybridapp/hybridapp.md",
       "language": "C#",
-      "banner_light_width": 1919,
-      "banner_light_height": 1122,
-      "banner_dark_width": 1919,
-      "banner_dark_height": 1123
+      "banner_light_width": 1920,
+      "banner_light_height": 1200,
+      "banner_dark_width": 1920,
+      "banner_dark_height": 1200
     }
 ]

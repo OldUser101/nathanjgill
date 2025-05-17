@@ -42,4 +42,7 @@ next-env.d.ts
 
 # VSCode Workspace
 *.code-workspace
-/.vscode/
+.vscode/
+
+# Backup files
+*.bak

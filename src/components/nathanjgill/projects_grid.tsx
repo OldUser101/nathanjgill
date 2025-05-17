@@ -16,7 +16,7 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
                 <h1 className="text-lg font-light">Explore my portfolio of applications, tools, and experiments in software development.</h1>
                 <h1 className="text-lg font-light">Each project reflects my approach to coding, problem-solving, and innovation.</h1>
             </div>
-            <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 w-full px-4 pt-6">
+            <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 w-full px-4 pt-6 items-stretch">
                 {projects.map((p, i) => {
                     return (<ProjectCard project={p} key={i}/>);
                 })}

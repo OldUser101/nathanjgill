@@ -24,30 +24,32 @@ export function ProjectCard({ project }: ProjectCardProps) {
     if (!mounted) return null;
 
     return (
-        <Card className="flex-1 overflow-y-hidden overflow-x-hidden">
+        <Card className="flex flex-col h-full overflow-y-hidden overflow-x-hidden">
             { theme === "light" ? 
-                <Image src={project.banner_light} alt="Banner Image" width={project.banner_light_width} height={project.banner_light_height} />
-                :<Image src={project.banner_dark} alt="Banner Image" width={project.banner_dark_width} height={project.banner_dark_height} />
+                <Image src={project.banner_light} alt="Banner Image" width={project.banner_light_width} height={project.banner_light_height} priority/>
+                :<Image src={project.banner_dark} alt="Banner Image" width={project.banner_dark_width} height={project.banner_dark_height} priority/>
             }
             <div className="p-4 h-full flex flex-col select-none">
                 <a href={`/projects/${project.slug}`} className="font-semibold text-xl pb-2 hover:underline">{project.title}</a>
                 <p className="text-lg font-light">{project.description}</p>
-                <p className="flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-400 mt-2 justify-self-end">
-                    <Code size={16} />
-                    <span>Language: {project.language}</span>
-                </p>
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                    <a href={project.url} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" className="w-full">
-                            <SquareArrowOutUpRight />
-                            Project Page
-                        </Button>
-                    </a>
-                    <a href={`/projects/${project.slug}`}>
-                        <Button className="w-full">
-                            Read More
-                        </Button>
-                    </a>
+                <div className="mt-auto">
+                    <p className="flex items-center space-x-2 text-sm text-gray-700 dark:text-gray-400 mt-2 justify-self-end">
+                        <Code size={16} />
+                        <span>Language: {project.language}</span>
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 pt-4">
+                        <a href={project.url} target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline" className="w-full">
+                                <SquareArrowOutUpRight />
+                                Project Page
+                            </Button>
+                        </a>
+                        <a href={`/projects/${project.slug}`}>
+                            <Button className="w-full">
+                                Read More
+                            </Button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </Card>
