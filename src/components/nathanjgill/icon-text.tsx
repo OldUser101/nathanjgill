@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function IconText() {
     return (            
-        <Link href="/" passHref legacyBehavior>
+        <Link href="/">
             <div className="h-16 flex items-center forecolor cursor-pointer">
                 <Image src="/favicon-light.svg"
                         width={32}
