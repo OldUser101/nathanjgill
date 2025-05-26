@@ -18,21 +18,21 @@ import { BranchSwitch } from "./branch-switch";
 
 function NavItem({children, href}: {children: React.ReactNode, href: string}) {
     return (
-            <Link href={href}>
-                <li className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
-                    {children}
-                </li>
-            </Link>
+        <Link href={href}>
+            <li className="items-center justify-center p-2 text-sm font-medium transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
+                {children}
+            </li>
+        </Link>
     );
 }
 
 function MobileNavItem({children, href}: {children: React.ReactNode, href: string}) {
     return (
-            <Link href={href}>
-                <li className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
-                    {children}
-                </li>
-            </Link>
+        <Link href={href}>
+            <li className="items-center justify-center p-2 text-xl font-semibold transition-colors text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-white cursor-pointer">
+                {children}
+            </li>
+        </Link>
     );
 }
 
