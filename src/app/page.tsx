@@ -6,7 +6,7 @@ import { GitHubStats } from "@/components/nathanjgill/stats";
 
 export default function Home() {
   return (
-    <div className="font-sans">
+    <div>
         <HeaderPanel fixed/>
         <div className="h-14"/>
         <main>

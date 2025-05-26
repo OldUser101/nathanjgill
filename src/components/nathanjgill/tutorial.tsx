@@ -47,7 +47,7 @@ export default function TutorialPage({ slug, chapterNumber, tutorial }: Tutorial
     };
 
     return (
-        <div className="font-sans">
+        <div>
 
             <div className="md:hidden">
                 <HeaderPanel useChapter={true} tutorial={tutorial} slug={slug} completedChapters={completedChapters}/>

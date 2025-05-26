@@ -20,7 +20,7 @@ const loadTutorials = (): Tutorial[] => {
 export default function TutorialIndex() {
     const tutorials = loadTutorials();
     return (
-        <div className="font-sans">
+        <div>
             <HeaderPanel fixed/>
             <div className="h-14"/>
             <TutorialGrid tutorials={tutorials}/>

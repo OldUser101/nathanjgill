@@ -27,7 +27,7 @@ export function ProjectPage({ project } : ProjectPageProps) {
     if (!mounted) return null;
 
     return (
-        <div className="font-sans">
+        <div>
             <HeaderPanel fixed/>
             <div className="h-14"/>
 
