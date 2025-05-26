@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { Tutorial } from '@/lib/tutorial';
+import { ResolveTutorialCdnUrls, Tutorial } from '@/lib/tutorial';
 import TutorialPage from '@/components/nathanjgill/tutorial';
 import fs from 'fs';
 import path from 'path';
@@ -41,11 +41,14 @@ export default async function TutorialLoader({ params, searchParams }: TutorialL
 
   if (!tutorial) return notFound();
 
-  const currentChapter = tutorial.chapters[chapterNumber - 1];
+  const tutorialWithCdn = ResolveTutorialCdnUrls(tutorial);
+  console.log(tutorialWithCdn);
+
+  const currentChapter = tutorialWithCdn.chapters[chapterNumber - 1];
   if (!currentChapter) return notFound();
 
   return (
-      <TutorialPage chapterNumber={chapterNumber - 1} tutorial={tutorial} slug={slug} completedChapters={[]}/>
+      <TutorialPage chapterNumber={chapterNumber - 1} tutorial={tutorialWithCdn} slug={slug} completedChapters={[]}/>
   );
 }
 

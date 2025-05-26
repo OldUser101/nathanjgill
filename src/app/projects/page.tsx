@@ -3,7 +3,7 @@ import { FooterPanel } from "@/components/nathanjgill/footer";
 import { ProjectGrid } from "@/components/nathanjgill/projects_grid";
 import fs from 'fs';
 import path from 'path';
-import { Project } from "@/lib/project";
+import { Project, ResolveProjectCdnUrls } from "@/lib/project";
 
 const loadProjects = (): Project[] => {
   return JSON.parse(
@@ -19,12 +19,13 @@ export function generateMetadata() {
 
 export default function Projects() {
   const projects = loadProjects();
+  const projectsWithCdn = projects.map(project => ResolveProjectCdnUrls(project));
   return (
     <div>
         <HeaderPanel fixed/>
         <div className="h-14"/>
         <main>
-          <ProjectGrid projects={projects}/>
+          <ProjectGrid projects={projectsWithCdn}/>
         </main>
         <FooterPanel/>
     </div>

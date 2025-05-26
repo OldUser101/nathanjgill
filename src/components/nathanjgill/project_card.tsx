@@ -26,8 +26,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
     return (
         <Card className="flex flex-col h-full overflow-y-hidden overflow-x-hidden">
             { theme === "light" ? 
-                <Image src={project.banner_light} alt="Banner Image" width={project.banner_light_width} height={project.banner_light_height} priority/>
-                :<Image src={project.banner_dark} alt="Banner Image" width={project.banner_dark_width} height={project.banner_dark_height} priority/>
+                <img src={project.banner_light} alt="Banner Image" width={project.banner_light_width} height={project.banner_light_height}/>
+                :<img src={project.banner_dark} alt="Banner Image" width={project.banner_dark_width} height={project.banner_dark_height}/>
             }
             <div className="p-4 h-full flex flex-col select-none">
                 <a href={`/projects/${project.slug}`} className="font-semibold text-xl pb-2 hover:underline">{project.title}</a>

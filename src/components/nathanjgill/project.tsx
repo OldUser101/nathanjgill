@@ -36,8 +36,8 @@ export function ProjectPage({ project } : ProjectPageProps) {
                     <div className="flex justify-center">
                         <div className="w-full lg:w-3/5">
                             { theme === "light" ? 
-                                <Image src={project.banner_light} className="rounded-lg" alt="Banner Image" width={project.banner_light_width} height={project.banner_light_height}/>
-                                :<Image src={project.banner_dark} className="rounded-lg" alt="Banner Image" width={project.banner_dark_width} height={project.banner_dark_height}/>
+                                <img src={project.banner_light} className="rounded-lg" alt="Banner Image" width={project.banner_light_width} height={project.banner_light_height}/>
+                                :<img src={project.banner_dark} className="rounded-lg" alt="Banner Image" width={project.banner_dark_width} height={project.banner_dark_height}/>
                             }                   
                         </div>
                     </div>

@@ -6,20 +6,16 @@
       {
         "chapterNumber": 1,
         "title": "Introduction & Set-Up",
-        "path": "/tutorials/mysql-database-connection-tester/chapter-1.md"
+        "path": "cdn://tutorials/mysql-database-connection-tester/chapter-1.md"
       },
       {
         "chapterNumber": 2,
         "title": "Code",
-        "path": "/tutorials/mysql-database-connection-tester/chapter-2.md",
+        "path": "cdn://tutorials/mysql-database-connection-tester/chapter-2.md",
         "resources": [
           {
             "title": "Source Code",
-            "path": "/resources/mysql-database-connection-tester/Resources.zip"
-          },
-          {
-            "title": "Compiled Code",
-            "path": "/resources/mysql-database-connection-tester/MySqlConnectionTester.zip"
+            "path": "cdn://resources/mysql-database-connection-tester/Resources.zip"
           }
         ]
       }
