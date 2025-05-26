@@ -57,7 +57,7 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
 		fontFamily: {
-			sans: ['Inter', 'Arial', 'sans-serif'],
+			inter: ['Inter', 'Arial', 'sans-serif'],
 		},
 		keyframes: {
 			marquee: {

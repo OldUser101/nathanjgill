@@ -20,7 +20,7 @@ export function generateMetadata() {
 export default function Projects() {
   const projects = loadProjects();
   return (
-    <div className="font-sans">
+    <div>
         <HeaderPanel fixed/>
         <div className="h-14"/>
         <main>

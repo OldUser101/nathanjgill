@@ -7,7 +7,7 @@ import MarkdownRenderer from "@/components/nathanjgill/markdownRenderer";
 
 export default function About() {
   return (
-    <div className="font-sans">
+    <div>
         <HeaderPanel fixed/>
         <div className="h-14"/>
         <motion.div animate={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }} transition={{ duration: 0.5 }}>
