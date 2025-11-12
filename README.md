@@ -1,6 +1,6 @@
 # nathanjgill
 
-![Vercel](https://vercel-badge.nathanjgill.uk/api/OldUser101/nathanjgill)
+**DEPRECATED**: This site is now deprecated. Go to [the new repository](https://github.com/OldUser101/nathanjgill.uk) instead.
 
 This is the repository that contains content for my website at [nathanjgill.uk](https://nathanjgill.uk)
 
